@@ -1,1 +1,30 @@
 $card-image-vertical-max-height: 92px;
+$chip-padding-x: 4px;
+$chip-padding-y: 2px;
+$chip-border-radius: 6px;
+$harvard-dark-red: #821122;
+$harvard-red: #AD182D;
+$mortar: #8C8179;
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "harvard-dark-red": $harvard-dark-red,
+    "harvard-red": $harvard-red,
+    "mortar": $mortar,
+  ),
+  $theme-colors
+);
+
+.pgn__chip {
+  .pgn__chip__label {
+    line-height: 20px !important;
+  }
+}
+
+.card {
+  border-bottom: 5px solid !important;
+}
+
+.line-height-24px {
+  line-height: 24px !important;
+}

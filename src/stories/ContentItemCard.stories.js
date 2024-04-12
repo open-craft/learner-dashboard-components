@@ -15,7 +15,22 @@ export const Course = {
       logo_url: "https://www.edx.org/images/logos/edx-logo-elm.svg"
     },
     duration: "6 Months",
-    access_until: "2023-12-31T23:59:59",
-    size: 0
+    access_until: "Access until: Feb 28, '24",
+    size: "",
+  }
+};
+
+export const LearningPath = {
+  args: {
+    type: "learningPath",
+    title: "Anatomy: Musculoskeletal and Integumentary Systems",
+    banner: "https://picsum.photos/320/200/",
+    partner: {
+      name: "Harvard University",
+      logo_url: "https://www.edx.org/images/logos/edx-logo-elm.svg"
+    },
+    duration: "6 Months",
+    access_until: "Access until: Feb 28, '24",
+    size: "11 courses",
   }
 };

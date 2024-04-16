@@ -11,7 +11,8 @@ const VerticalContentCard = ({
   partner,
   duration,
   access_until,
-  size
+  size,
+  enrolled,
 }) => {
 
   let accent = "harvard-dark-red";
@@ -56,6 +57,10 @@ const VerticalContentCard = ({
       </Card.Section>
       <Card.Footer className="justify-content-start">
         <FullChip accent={accent} icon={cardTypeIcon} text={cardType} />
+        {enrolled && <FullChip
+          accent="indigo"
+          text="ENROLLED"
+        />}
       </Card.Footer>
     </Card>
   );

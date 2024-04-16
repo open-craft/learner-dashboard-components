@@ -17,6 +17,7 @@ export const Course = {
     duration: "6 Months",
     access_until: "Access until: Feb 28, '24",
     size: "",
+    enrolled: true,
   }
 };
 
@@ -32,5 +33,6 @@ export const LearningPath = {
     duration: "6 Months",
     access_until: "Access until: Feb 28, '24",
     size: "11 courses",
+    enrolled: false,
   }
 };

@@ -45,6 +45,7 @@ const HorizontalContentCard = ({
   viewResumeLink,
   gradesLink,
   infoAlert,
+  enrolled,
 }) => {
   let progressState = PROGRESS_STATE.IN_PROGRESS;
   if (progress === 0) {
@@ -70,12 +71,17 @@ const HorizontalContentCard = ({
   const renderProgressChip = () => {
     const [icon, accent] = getProgressIcon(progressState);
     return (
-      <FullChip
-        className="ml-auto"
-        accent={accent}
-        icon={icon}
-        text={progressState}
-      />
+      <div className="ml-auto d-flex">
+        <FullChip
+          accent={accent}
+          icon={icon}
+          text={progressState}
+        />
+        {enrolled && <FullChip
+          accent="indigo"
+          text="ENROLLED"
+        />}
+      </div>
     )
   }
 

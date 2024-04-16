@@ -1,8 +1,8 @@
-import ContentItemCard from "../components/ContentItemCard";
+import VerticalContentCard from "../components/VerticalContentCard";
 
 export default {
-  title: "ContentItemCard",
-  component: ContentItemCard,
+  title: "VerticalContentCard",
+  component: VerticalContentCard,
 };
 
 export const Course = {

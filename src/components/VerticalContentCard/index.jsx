@@ -2,8 +2,9 @@ import { Card, Chip, Icon, Stack } from "@openedx/paragon"
 import { AccessTimeFilled, Book, Calendar, List } from "@openedx/paragon/icons"
 
 import "./index.scss"
+import FullChip from "../shared/FullChip";
 
-const ContentItemCard = ({
+const VerticalContentCard = ({
   type,
   title,
   banner,
@@ -20,12 +21,12 @@ const ContentItemCard = ({
   if (type === "course") {
     accent = "mortar";
     cardType = "COURSE";
-    cardTypeIcon = List;
+    cardTypeIcon = Book;
   }
 
   return (
     <Card
-      className={`border-${accent}`}
+      className={`border-${accent} border-bottom-5`}
       style={{ width: "320px", height: "380px" }}>
       <Card.ImageCap
         src={ banner }
@@ -54,12 +55,10 @@ const ContentItemCard = ({
         </Stack>
       </Card.Section>
       <Card.Footer className="justify-content-start">
-        <Chip className={`bg-${accent}`} variant="dark" iconBefore={cardTypeIcon}>
-          {cardType}
-        </Chip>
+        <FullChip accent={accent} icon={cardTypeIcon} text={cardType} />
       </Card.Footer>
     </Card>
   );
 }
 
-export default ContentItemCard;
+export default VerticalContentCard;

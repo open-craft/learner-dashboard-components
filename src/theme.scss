@@ -35,6 +35,7 @@ $black: #000000 !default;
 $dark-turquoise: #05A59D;
 $medium-gray: #E0E0E0;
 $light-gray: #F2F0EF;
+$lighter-gray: #707070;
 $ivy: #52854C;
 $theme-colors: () !default;
 $theme-colors: map-merge(
@@ -48,9 +49,20 @@ $theme-colors: map-merge(
     "ivy": $ivy,
     "medium-gray": $medium-gray,
     "light-gray": $light-gray,
+    "lighter-gray": $lighter-gray,
   ),
   $theme-colors
 );
+
+// search field variable
+$search-border-color: $lighter-gray;
+$search-border-radius: 4px;
+.pgn__searchfield {
+  border-radius: 4px;
+  .pgn__searchfield-form {
+    border-radius: 4px;
+  }
+}
 
 .border-bottom-5 {
   border-bottom: 5px solid !important;

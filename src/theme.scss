@@ -1,3 +1,6 @@
+// font size
+$lead-font-size: 1.25rem !important;
+
 // card variables
 $card-image-vertical-max-height: 92px;
 $card-image-horizontal-max-width: 248px;
@@ -27,6 +30,7 @@ $btn-border-radius: 4px;
 
 // custom colors
 $harvard-dark-red: #821122;
+$brand: $harvard-dark-red;
 $harvard-red: #AD182D;
 $mortar: #8C8179;
 $indigo: #293352;
@@ -40,6 +44,7 @@ $ivy: #52854C;
 $theme-colors: () !default;
 $theme-colors: map-merge(
   (
+    "brand": $brand,
     "harvard-dark-red": $harvard-dark-red,
     "harvard-red": $harvard-red,
     "mortar": $mortar,
@@ -50,9 +55,15 @@ $theme-colors: map-merge(
     "medium-gray": $medium-gray,
     "light-gray": $light-gray,
     "lighter-gray": $lighter-gray,
+    "black": $black,
   ),
   $theme-colors
 );
+
+// checkbox variables
+$custom-control-indicator-checked-color: $black;
+$custom-control-indicator-border-color: $black;
+$custom-control-indicator-checked-bg: $black;
 
 // search field variable
 $search-border-color: $lighter-gray;
@@ -101,4 +112,8 @@ $search-border-radius: 4px;
       border-top-color: $medium-gray !important;
     }
   }
+}
+
+.text-decoration-underline {
+  text-decoration: underline !important;
 }

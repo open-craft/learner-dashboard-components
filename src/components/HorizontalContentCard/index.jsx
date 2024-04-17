@@ -2,7 +2,6 @@ import { Alert, Button, Card, Icon, ProgressBar } from "@openedx/paragon"
 import {
   AccessTime,
   Book,
-  Calendar,
   CheckCircle,
   IncompleteCircle,
   Info,
@@ -13,12 +12,7 @@ import {
 import "./index.scss"
 import IconChip from "../shared/IconChip";
 import FullChip from "../shared/FullChip";
-
-export const PROGRESS_STATE = ({
-  NOT_STARTED: 'NOT STARTED',
-  IN_PROGRESS: 'IN PROGRESS',
-  COMPLETE: 'COMPLETE',
-});
+import { PROGRESS_STATE } from "../../constants";
 
 const getProgressIcon = (progressState) => {
   switch (progressState) {

@@ -1,4 +1,4 @@
-import HorizontalContentCard, { PROGRESS_STATE } from "../components/HorizontalContentCard";
+import HorizontalContentCard from "../components/HorizontalContentCard";
 
 export default {
   title: "HorizontalContentCard",

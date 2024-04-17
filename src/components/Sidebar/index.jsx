@@ -12,6 +12,7 @@ const Sidebar = ({
     return btnGroups.map((btn) => (
       <Button
         id={btn.id}
+        key={btn.id}
         variant={activeFilters.type === btn.id ? "brand" : "outline-brand"}
         className={activeFilters.type !== btn.id && "text-gray-700 border-medium-gray"}
         onClick={() => setActiveFilters((prev) => ({ ...prev, type: btn.id }))}
@@ -41,6 +42,7 @@ const Sidebar = ({
             <Form.Radio
               controlClassName="border-black"
               value={status.id}
+              key={status.id}
             >
               {status.text}
             </Form.Radio>
@@ -78,7 +80,10 @@ const Sidebar = ({
           value={activeFilters[key]}
         >
           {options.map((option) => (
-            <Form.Checkbox value={option.id}>
+            <Form.Checkbox
+              value={option.id}
+              key={option.id}
+            >
               {option.text}
             </Form.Checkbox>
           ))}

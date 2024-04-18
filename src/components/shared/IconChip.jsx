@@ -1,4 +1,5 @@
 import { Chip } from "@openedx/paragon"
+import PropTypes from 'prop-types';
 
 const IconChip = ({accent, icon, text}) => {
   return (
@@ -7,6 +8,17 @@ const IconChip = ({accent, icon, text}) => {
       {text}
     </div>
   )
+}
+
+IconChip.propTypes = {
+  accent: PropTypes.string.isRequired,
+  icon: PropTypes.elementType,
+  text: PropTypes.string,
+}
+
+IconChip.defaultProps = {
+  text: "",
+  icon: null,
 }
 
 export default IconChip;

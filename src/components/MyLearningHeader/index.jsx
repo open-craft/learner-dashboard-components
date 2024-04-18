@@ -1,4 +1,5 @@
 import { SearchField, Navbar } from "@openedx/paragon";
+import PropTypes from 'prop-types';
 
 const MyLearningHeader = ({headerText, subHeaderText, onSearchSubmit}) => {
   return (
@@ -23,6 +24,12 @@ const MyLearningHeader = ({headerText, subHeaderText, onSearchSubmit}) => {
     </Navbar>
 
   )
+}
+
+MyLearningHeader.propTypes = {
+  headerText: PropTypes.string.isRequired,
+  subHeaderText: PropTypes.string.isRequired,
+  onSearchSubmit: PropTypes.func.isRequired,
 }
 
 export default MyLearningHeader;

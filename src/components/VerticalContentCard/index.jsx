@@ -1,7 +1,7 @@
-import { Card, Chip, Icon, Stack } from "@openedx/paragon"
+import { Card, Icon, Stack } from "@openedx/paragon"
 import { AccessTimeFilled, Book, Calendar, List } from "@openedx/paragon/icons"
+import PropTypes from 'prop-types';
 
-import "./index.scss"
 import FullChip from "../shared/FullChip";
 
 const VerticalContentCard = ({
@@ -10,7 +10,7 @@ const VerticalContentCard = ({
   banner,
   partner,
   duration,
-  access_until,
+  accessUntil,
   size,
   enrolled,
 }) => {
@@ -32,7 +32,7 @@ const VerticalContentCard = ({
       <Card.ImageCap
         src={ banner }
         srcAlt=""
-        logoSrc={ partner.logo_url }
+        logoSrc={ partner.logoUrl }
         logoAlt={ partner.name }
         className="cic-image-cap"
       />
@@ -50,8 +50,8 @@ const VerticalContentCard = ({
           {size && <Stack direction="horizontal" gap={2} className="">
             <Icon className={`text-${accent}`} src={List} /> <span>{size}</span>
           </Stack>}
-          {access_until && <Stack direction="horizontal" gap={2} className="">
-            <Icon className={`text-${accent}`} src={AccessTimeFilled} /> {access_until}
+          {accessUntil && <Stack direction="horizontal" gap={2} className="">
+            <Icon className={`text-${accent}`} src={AccessTimeFilled} /> {accessUntil}
           </Stack>}
         </Stack>
       </Card.Section>
@@ -64,6 +64,27 @@ const VerticalContentCard = ({
       </Card.Footer>
     </Card>
   );
+}
+
+VerticalContentCard.propTypes = {
+  type: PropTypes.oneOf(['course', 'learningPath']),
+  title: PropTypes.string.isRequired,
+  banner: PropTypes.string.isRequired,
+  partner: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    logoUrl: PropTypes.string.isRequired,
+  }).isRequired,
+  duration: PropTypes.string,
+  accessUntil: PropTypes.string,
+  size: PropTypes.string,
+  enrolled: PropTypes.bool,
+}
+
+VerticalContentCard.defaultProps = {
+  duration: "",
+  accessUntil: "",
+  size: "",
+  enrolled: false,
 }
 
 export default VerticalContentCard;

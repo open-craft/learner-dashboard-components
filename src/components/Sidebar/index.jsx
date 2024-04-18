@@ -1,4 +1,5 @@
 import { Button, ButtonGroup, Form, Stack } from "@openedx/paragon";
+import PropTypes from 'prop-types';
 
 const Sidebar = ({
   btnGroups,
@@ -14,7 +15,7 @@ const Sidebar = ({
         id={btn.id}
         key={btn.id}
         variant={activeFilters.type === btn.id ? "brand" : "outline-brand"}
-        className={activeFilters.type !== btn.id && "text-gray-700 border-medium-gray"}
+        className={activeFilters.type !== btn.id ? "text-gray-700 border-medium-gray": ""}
         onClick={() => setActiveFilters((prev) => ({ ...prev, type: btn.id }))}
       >
         {btn.text}
@@ -122,6 +123,32 @@ const Sidebar = ({
       {renderChecboxes("Duration", "durations", durationOptions)}
     </Stack>
   )
+}
+
+Sidebar.propTypes = {
+  btnGroups: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  })).isRequired,
+  statusOptions: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  })).isRequired,
+  subjectOptions: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  })).isRequired,
+  durationOptions: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+  })).isRequired,
+  activeFilters: PropTypes.shape({
+    type: PropTypes.string.isRequired,
+    status: PropTypes.string,
+    subjects: PropTypes.arrayOf(PropTypes.string),
+    durations: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
+  setActiveFilters: PropTypes.func.isRequired,
 }
 
 export default Sidebar;

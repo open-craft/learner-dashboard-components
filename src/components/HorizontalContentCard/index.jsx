@@ -8,6 +8,7 @@ import {
   List,
   RadioButtonUnchecked,
 } from "@openedx/paragon/icons"
+import PropTypes from 'prop-types';
 
 import "./index.scss"
 import IconChip from "../shared/IconChip";
@@ -33,7 +34,7 @@ const HorizontalContentCard = ({
   banner,
   partner,
   duration,
-  access_until,
+  accessUntil,
   size,
   progress,
   viewResumeLink,
@@ -109,7 +110,7 @@ const HorizontalContentCard = ({
         <Card.ImageCap
           src={ banner }
           srcAlt=""
-          logoSrc={ partner.logo_url }
+          logoSrc={ partner.logoUrl }
           logoAlt={ partner.name }
           className="cic-image-cap top-left-logo"
         />
@@ -136,9 +137,9 @@ const HorizontalContentCard = ({
             {size && <span className="micro d-flex align-items-center mr-3">
               <Icon className="mr-1" size="sm" src={List} /> {size}
             </span>}
-            {/* TODO: make date bold in access_until string, probably need to add intl */}
-            {access_until && <span className="micro d-flex align-items-center">
-              <Icon className="mr-1" size="sm" src={AccessTime} /> {access_until}
+            {/* TODO: make date bold in accessUntil string, probably need to add intl */}
+            {accessUntil && <span className="micro d-flex align-items-center">
+              <Icon className="mr-1" size="sm" src={AccessTime} /> {accessUntil}
             </span>}
             <div className="ml-auto">
               {renderActions()}
@@ -153,6 +154,33 @@ const HorizontalContentCard = ({
       }
     </>
   );
+}
+
+HorizontalContentCard.propTypes = {
+  type: PropTypes.oneOf(['course', 'learningPath']),
+  title: PropTypes.string.isRequired,
+  banner: PropTypes.string.isRequired,
+  partner: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    logoUrl: PropTypes.string.isRequired,
+  }).isRequired,
+  duration: PropTypes.string,
+  accessUntil: PropTypes.string,
+  size: PropTypes.string,
+  progress: PropTypes.number.isRequired,
+  viewResumeLink: PropTypes.string.isRequired,
+  gradesLink: PropTypes.string,
+  infoAlert: PropTypes.string,
+  enrolled: PropTypes.bool,
+}
+
+HorizontalContentCard.defaultProps = {
+  duration: "",
+  accessUntil: "",
+  size: "",
+  gradesLink: "",
+  infoAlert: "",
+  enrolled: false,
 }
 
 export default HorizontalContentCard;

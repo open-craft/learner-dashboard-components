@@ -1,8 +1,10 @@
 import { Card, Icon, Stack } from "@openedx/paragon"
-import { AccessTimeFilled, Book, Calendar, List } from "@openedx/paragon/icons"
+import { AccessTimeFilled, Calendar } from "@openedx/paragon/icons"
 import PropTypes from 'prop-types';
 
 import FullChip from "../shared/FullChip";
+import Book from "../icons/Book";
+import List from "../icons/List";
 
 const VerticalContentCard = ({
   type,

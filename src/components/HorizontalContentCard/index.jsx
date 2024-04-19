@@ -1,11 +1,8 @@
 import { Alert, Button, Card, Icon, ProgressBar } from "@openedx/paragon"
 import {
   AccessTime,
-  Book,
   CheckCircle,
-  IncompleteCircle,
   Info,
-  List,
   RadioButtonUnchecked,
 } from "@openedx/paragon/icons"
 import PropTypes from 'prop-types';
@@ -14,13 +11,18 @@ import "./index.scss"
 import IconChip from "../shared/IconChip";
 import FullChip from "../shared/FullChip";
 import { PROGRESS_STATE } from "../../constants";
+import Book from "../icons/Book";
+import List from "../icons/List";
+import Pie from "../icons/Pie";
+
+const SPACER = '\u00A0';
 
 const getProgressIcon = (progressState) => {
   switch (progressState) {
     case PROGRESS_STATE.NOT_STARTED:
       return [RadioButtonUnchecked, 'slate'];
     case PROGRESS_STATE.IN_PROGRESS:
-      return [IncompleteCircle, 'dark-turquoise'];
+      return [Pie, 'dark-turquoise'];
     case PROGRESS_STATE.COMPLETE:
       return [CheckCircle, 'ivy'];
     default:
@@ -40,7 +42,6 @@ const HorizontalContentCard = ({
   viewResumeLink,
   gradesLink,
   infoAlert,
-  enrolled,
 }) => {
   let progressState = PROGRESS_STATE.IN_PROGRESS;
   if (progress === 0) {
@@ -60,7 +61,7 @@ const HorizontalContentCard = ({
   }
   let cardSubtitle = partner.name;
   if (duration) {
-    cardSubtitle = cardSubtitle + ` •  ${duration}`;
+    cardSubtitle = cardSubtitle + `${SPACER}${SPACER}•${SPACER}${SPACER}${duration}`;
   }
 
   const renderProgressChip = () => {
@@ -72,10 +73,6 @@ const HorizontalContentCard = ({
           icon={icon}
           text={progressState}
         />
-        {enrolled && <FullChip
-          accent="indigo"
-          text="ENROLLED"
-        />}
       </div>
     )
   }
@@ -171,7 +168,6 @@ HorizontalContentCard.propTypes = {
   viewResumeLink: PropTypes.string.isRequired,
   gradesLink: PropTypes.string,
   infoAlert: PropTypes.string,
-  enrolled: PropTypes.bool,
 }
 
 HorizontalContentCard.defaultProps = {
@@ -180,7 +176,6 @@ HorizontalContentCard.defaultProps = {
   size: "",
   gradesLink: "",
   infoAlert: "",
-  enrolled: false,
 }
 
 export default HorizontalContentCard;

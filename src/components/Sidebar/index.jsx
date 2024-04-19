@@ -9,13 +9,18 @@ const Sidebar = ({
   activeFilters,
   setActiveFilters,
 }) => {
+  const showClearAll = (
+    activeFilters.type !== 'all' || activeFilters.status
+    || activeFilters.subjects.length > 0 || activeFilters.durations.length > 0
+  );
+
   const renderFilterBtns = () => {
     return btnGroups.map((btn) => (
       <Button
         id={btn.id}
         key={btn.id}
         variant={activeFilters.type === btn.id ? "brand" : "outline-brand"}
-        className={activeFilters.type !== btn.id ? "text-gray-700 border-medium-gray": ""}
+        className={activeFilters.type !== btn.id ? "text-gray-700 border-medium-gray" : ""}
         onClick={() => setActiveFilters((prev) => ({ ...prev, type: btn.id }))}
       >
         {btn.text}
@@ -41,7 +46,7 @@ const Sidebar = ({
         >
           {statusOptions.map((status) => (
             <Form.Radio
-              controlClassName="border-black"
+              className="mb-1"
               value={status.id}
               key={status.id}
             >
@@ -82,6 +87,8 @@ const Sidebar = ({
         >
           {options.map((option) => (
             <Form.Checkbox
+              controlClassName="border-black"
+              className="mb-1"
               value={option.id}
               key={option.id}
             >
@@ -106,14 +113,14 @@ const Sidebar = ({
     <Stack gap={3}>
       <div className="d-flex justify-content-between x-small">
         <b className="text-black lead">Filter</b>
-        <Button
+        {showClearAll && <Button
           variant="link"
           size="inline"
           className="text-dark-turquoise text-decoration-underline"
           onClick={handleClearAll}
         >
           Clear all
-        </Button>
+        </Button>}
       </div>
       <ButtonGroup className="mb-2">
         {renderFilterBtns()}

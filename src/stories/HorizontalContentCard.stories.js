@@ -20,7 +20,6 @@ export const Course = {
     infoAlert: "Information alert",
     gradesLink: "https://openedx.org/",
     viewResumeLink: "https://openedx.org/",
-    enrolled: false,
   }
 };
 
@@ -39,6 +38,5 @@ export const LearningPath = {
     progress: 30,
     infoAlert: "Information alert",
     viewResumeLink: "https://openedx.org/",
-    enrolled: true,
   }
 };

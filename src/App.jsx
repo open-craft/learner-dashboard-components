@@ -1,12 +1,11 @@
-import { useState } from 'react'
 import './App.css'
-import ContentItemCard from './components/ContentItemCard'
+import VerticalContentCard from './components/VerticalContentCard'
 
 function App() {
 
   return (
     <>
-      <ContentItemCard />
+      <VerticalContentCard />
     </>
   )
 }
